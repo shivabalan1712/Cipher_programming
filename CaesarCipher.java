@@ -4,8 +4,7 @@ public class CaesarCipher {
     
     public static StringBuffer cipher(String text, int s, boolean encrypt) {
         StringBuffer result = new StringBuffer();
-        s = encrypt ? s : 26 - s; // Adjust the shift for decryption
-
+        s = encrypt ? s : 26 - s; 
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
             if (Character.isUpperCase(ch)) {

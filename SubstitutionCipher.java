@@ -33,7 +33,7 @@ public class SubstitutionCipher {
             if (cipherMap.containsKey(ch)) {
                 result.append(encrypt ? cipherMap.get(ch) : getKeyByValue(cipherMap, ch));
             } else {
-                result.append(ch);  // If not in map, just append the character as is
+                result.append(ch);  
             }
         }
 
@@ -53,6 +53,6 @@ public class SubstitutionCipher {
                 return entry.getKey();
             }
         }
-        return value;  // Fallback if not found, though it should always be found
+        return value;  
     }
 }

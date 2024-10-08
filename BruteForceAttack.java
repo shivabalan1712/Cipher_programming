@@ -6,7 +6,7 @@ public class BruteForceAttack {
         StringBuilder result = new StringBuilder();
         
         for (int s = 1; s < 26; s++) {
-            result.setLength(0); // Reset the StringBuilder for the next shift
+            result.setLength(0); 
             
             for (int i = 0; i < encryptedText.length(); i++) {
                 char ch = encryptedText.charAt(i);
