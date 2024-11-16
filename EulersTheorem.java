@@ -1,46 +1,39 @@
 import java.util.Scanner;
 
 public class EulersTheorem {
-    
-    public static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
+
+    // GCD Function
+    static int gcd(int a, int b) {
+        return (b == 0) ? a : gcd(b, a % b);
     }
 
-    public static int eulerTotient(int n) {
-        int result = n; 
+    // Euler's Totient Function
+    static int eulerTotient(int n) {
+        int result = n;
         for (int p = 2; p * p <= n; p++) {
-           
             if (n % p == 0) {
-                while (n % p == 0) {
-                    n /= p;
-                }
+                while (n % p == 0) n /= p;
                 result -= result / p;
             }
         }
-        if (n > 1) {
-            result -= result / n;
-        }
+        if (n > 1) result -= result / n;
         return result;
     }
 
-    public static long modExp(int a, int b, int m) {
+    // Modular Exponentiation
+    static long modExp(int a, int b, int m) {
         long result = 1;
-        a = a % m; 
+        a %= m;
         while (b > 0) {
-            if ((b & 1) == 1) {
-                result = (result * a) % m;
-            }
-            b >>= 1; 
-            a = (a * a) % m; 
+            if ((b & 1) == 1) result = (result * a) % m;
+            b >>= 1;
+            a = (a * a) % m;
+        }
         return result;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter integer a: ");
         int a = scanner.nextInt();
         System.out.print("Enter integer n: ");
@@ -51,7 +44,6 @@ public class EulersTheorem {
         } else {
             int phiN = eulerTotient(n);
             System.out.println("φ(" + n + ") = " + phiN);
-
             long result = modExp(a, phiN, n);
             System.out.println("a^φ(n) mod n = " + result);
         }
