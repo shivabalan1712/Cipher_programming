@@ -1,13 +1,8 @@
 import java.util.Scanner;
-
 public class EulersTheorem {
-
-    // GCD Function
     static int gcd(int a, int b) {
         return (b == 0) ? a : gcd(b, a % b);
     }
-
-    // Euler's Totient Function
     static int eulerTotient(int n) {
         int result = n;
         for (int p = 2; p * p <= n; p++) {
@@ -19,8 +14,6 @@ public class EulersTheorem {
         if (n > 1) result -= result / n;
         return result;
     }
-
-    // Modular Exponentiation
     static long modExp(int a, int b, int m) {
         long result = 1;
         a %= m;
@@ -31,7 +24,6 @@ public class EulersTheorem {
         }
         return result;
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter integer a: ");
@@ -47,7 +39,6 @@ public class EulersTheorem {
             long result = modExp(a, phiN, n);
             System.out.println("a^φ(n) mod n = " + result);
         }
-
         scanner.close();
     }
 }
